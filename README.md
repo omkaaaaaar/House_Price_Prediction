@@ -1,60 +1,40 @@
-🏡 House Price Prediction (Regression)
+# 🏡 House Price Prediction (Regression)
 
-My 1st ML Project!
+## My First ML Project! (Started: Nov 1, 2025)
 
-Predicting final house sale prices using the Ames Housing dataset from Kaggle. This is an end-to-end Regression project.
+Predicting final house sale prices using the Ames Housing dataset from Kaggle. This is a classic **Regression** challenge.
 
-🛠️ Setup
+## 🛠️ Setup
 
-Dependencies (requirements.txt)
+### Dependencies (`requirements.txt`)
+pandas numpy scikit-learn matplotlib seaborn
 
-pip install pandas numpy scikit-learn matplotlib seaborn
+### File Structure
+House_Price_Prediction/ ├── data/ │ ├── train.csv
 
+│ └── test.csv
 
-File Structure
+├── house_price_model.ipynb └── requirements.txt
 
-House_Price_Prediction/
-├── data/
-│   ├── train.csv         
-│   └── test.csv          
-├── house_price_model.ipynb 
-└── requirements.txt      
+## 📅 Day 1 Log: Data Cleaning (Code Documentation)
 
+### **Goal:** Achieve a $100\%$ clean feature set (X) for modeling.
 
-📅 Day 1 Log: Data Cleaning Summary
+| Step | Action | Python Code Snippet | 
+| :--- | :--- | :--- | 
+| **1. Unification** | Combine train/test features; separate `Y_train`. | `Y_train = train_data['SalePrice']` | 
+|  |  | `all_data = pd.concat([train_data, test_data], ignore_index=True)` | 
+| **2. Categorical NaNs** | Fill high-missing categorical features (Pool, Garage, Bsmt, etc.) with the string `'None'`. | `all_data[col].fillna('None')` | 
+| **3. Numerical Zeros** | Fill area/count features (e.g., Garage Area, Basement SF) with the number $0$. | `all_data[col].fillna(0)` | 
+| **4. Statistical Imputation** | Fill remaining low-count numerical features using median grouped by neighborhood. | `all_data.groupby('Neighborhood')['LotFrontage'].transform(lambda x: x.fillna(x.median()))` | 
 
-Goal: Clean and unify the 79 features for modeling.
+**Result:** `all_data` is now completely clean and ready for numerical feature transformation.
 
-Step
+## ➡️ Next Steps (Day 2 Focus)
 
-Action
+1. **Transform Y:** Apply $\text{log}$ transformation to the target variable (`Y_train`).
 
-Method & Result
+2. **Encode X:** Use **One-Hot Encoding** to convert all strings to numerical features.
 
-1. Unification
+3. **Model:** Train baseline **Linear Regression**.
 
-Loaded data and separated SalePrice (Y_train).
-
-Concatenated 79 features into a single all_data DataFrame (2,919 rows).
-
-2. Analysis
-
-Checked $\text{NaN}$ values (missing data).
-
-Confirmed missing data (e.g., $99\%$ in PoolQC) means "No Feature".
-
-3. Imputation
-
-Filled all $\text{NaN}$s.
-
-1. Categorical: Filled PoolQC, GarageType, etc., with 'None' string. 2. Numerical: Filled GarageArea, TotalBsmtSF with $0$. 3. Statistical: Used Median by Neighborhood for LotFrontage.
-
-Result: The all_data DataFrame is now $100\%$ clean and ready for numerical conversion.
-
-➡️ Next Steps (Day 2 Focus)
-
-Transform Y: Apply $\text{log}$ to Y_train (SalePrice).
-
-Encode X: Use One-Hot Encoding to convert categorical strings (like 'RL', 'None') to numbers.
-
-Model: Train baseline Linear Regression.
