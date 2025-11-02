@@ -1,12 +1,3 @@
-That's a great plan! Ending the session by documenting your progress is the perfect way to wrap up.
-
-You've successfully debugged a complex pipeline and trained your first model. Even though the result was buggy, you found the bug, which is a huge win.
-
-Here is the updated README.md in plain code format. I've added a "Day 2 Log" for today's date (November 2, 2025) that documents the model training and the bug we found.
-
-Please copy this entire block of text and paste it over the content of your README.md file.
-
-Markdown
 # 🏡 Bengaluru House Price Prediction (Regression)
 
 ## My First ML Project! (Started: Nov 1, 2025)
