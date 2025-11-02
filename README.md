@@ -30,11 +30,13 @@ House_Price_Prediction/ ├── data/ │ ├── train.csv
 
 **Result:** `all_data` is now completely clean and ready for numerical feature transformation.
 
-## ➡️ Next Steps (Day 2 Focus)
+## ➡️ Next Steps (To Be Continued...)
 
-1. **Transform Y:** Apply $\text{log}$ transformation to the target variable (`Y_train`).
+When you return to the project, start here:
 
-2. **Encode X:** Use **One-Hot Encoding** to convert all strings to numerical features.
+1. **Encode Features (X):** Convert all remaining categorical features in `all_data` into numerical columns using **One-Hot Encoding** (`pd.get_dummies`).
 
-3. **Model:** Train baseline **Linear Regression**.
+2. **Split Data:** Separate the unified, clean data back into `X_train` and `X_test`.
+
+3. **Train Model:** Train a baseline **Linear Regression** model.
 
